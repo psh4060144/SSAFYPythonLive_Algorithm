@@ -48,4 +48,3 @@ for i in range(1<<n):   # 1<<n: 부분 집합의 갯수
         if i & (1<<j):  # i의 j번 bit이 1인 경우
             print(arr[j], end = ', ')  # j 출력.
     print()
-print()
