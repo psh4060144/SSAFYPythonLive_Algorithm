@@ -19,13 +19,13 @@ counts = [0] * 5  # 그래서 가장 큰 정수를 알고 있어야 한다는 �
 # 카운팅 정렬은 카운팅할 칸의 갯수가 1,000,000개 이하이고, 카운팅 정렬을 쓰라는 얘기가 있는듯 할때 쓰는 게 좋다.
 
 for i in range(len(data)):
-    counts[data[i]] += 1  # 이래서 data가 정수나 정수로 표현할 수 있는 자료에만 쓸 수 있다는 거. 정수가 아니면 counts[x]에서 indexing이 될 수가 없다.
-                          # data 요소 본인이 index number가 되어 숫자를 늘려나가기 때문.
+    counts[data[i]] += 1    # 이래서 data가 정수나 정수로 표현할 수 있는 자료에만 쓸 수 있다는 거. 정수가 아니면 counts[x]에서 indexing이 될 수가 없다.
+                            # data 요소 본인이 index number가 되어 숫자를 늘려나가기 때문.
 for i in range(1, 5):  # range(1, max(data) + 1)  # 처음부터 counts[i]까지의 합계. = 재귀적으로 내 전 꺼랑 나만 더하면 됨.
     counts[i] += counts[i-1]
 
-for i in range(len(data) - 1, 0, -1):  # 근데 왜 거꾸로 하지? 앞에서 해도 될 것 같은데. 왜냐? 순서가 바뀌지 않기 때문에.
-                                       # 앞에서 하면 중복값의 경우 앞의 값이 뒤로 가고 뒤의 값이 앞으로 간다!
+for i in range(len(data) - 1, 0, -1):   # 근데 왜 거꾸로 하지? 앞에서 해도 될 것 같은데. 왜냐? 순서가 바뀌지 않기 때문에.
+                                        # 앞에서 하면 중복값의 경우 앞의 값이 뒤로 가고 뒤의 값이 앞으로 간다!
     counts[data[i]] -= 1
     temp[counts[data[i]]] = data[i]
 
